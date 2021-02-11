@@ -6,6 +6,7 @@
 let wordArray = ["friend", "bug", "big", "slob", "sloth"];
 let wordWithPrefix = [];
 let longestPrefix = '';
+let buildingPrefix = '';
 
 function longestCommonPrefix(wordArray){
     console.log(wordArray);
@@ -17,31 +18,20 @@ function longestCommonPrefix(wordArray){
 	
 		let word = 0; //word Index
 		let letter = 0; //char Index
-		let wordIncrementer = 1; //next word to compare to
 	
 		while(wordWithPrefix.length > 1){
-			if(wordWithPrefix[word][letter] === wordWithPrefix[word + wordIncrementer][letter]){
-				longestPrefix += wordWithPrefix[word][letter]; //add letters that match to prefix
-				letter += 1;
+			for(let c = 1; c <= wordWithPrefix.length - 1; c++){
+				while(wordWithPrefix[word][letter] === wordWithPrefix[word + c][letter]){
+					buildingPrefix += wordWithPrefix[word][letter]; //add letters that match to prefix var
+					letter += 1; //check next letters in matching prefixes
+				}
+				letter = 0;
+				//now check same word with next word
+				if(buildingPrefix.length > longestPrefix.length){longestPrefix = buildingPrefix;}
 			}
 			wordWithPrefix = wordWithPrefix.slice(1); //move on from first word
 		}
-
-
+		console.log(longestPrefix);
 }
 
 longestCommonPrefix(wordArray);
-
-
-			// //any words match
-			// for(var d = 0; d <= wordWithPrefix.length - 1; d++){
-			// 	//any chars match
-			// 	if(wordWithPrefix[x][d] === wordWithPrefix[x + 1][d]){
-			// 		console.log('letters match');
-			// 		longestPrefix += wordWithPrefix[x][d];
-			// 		if(wordWithPrefix[x][d + 1] === wordWithPrefix[x + 1][d + 1]){
-			// 			longestPrefix += wordWithPrefix[x][d + 1];
-			// 		}
-			// 	} //check on follow word in array
-			// console.log(longestPrefix);
-			// }
