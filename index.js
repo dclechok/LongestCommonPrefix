@@ -3,7 +3,7 @@
  * @return {string}
  */
 
-let wordArray = ["friend", 'slit', "bug", "big", "slob", "sloth"];
+let wordArray = ["flower", "flow", "flight"];
 let wordWithPrefix = [];
 let longestPrefix = '';
 let buildingPrefix = '';
@@ -25,18 +25,18 @@ function longestCommonPrefix(wordArray){
 					buildingPrefix += wordWithPrefix[word][letter]; //add letters that match to prefix var
 					letter += 1; //check next letters in matching prefixes
 				}
-				
 				letter = 0;
-				//now check same word with next word
+				//holds the longest prefix...needs to hold the most COMMON prefix
 				if(buildingPrefix.length > longestPrefix.length){
 					longestPrefix = buildingPrefix;
 				}
 				buildingPrefix = ''; //reset buildingPrefix
 			}
 			wordWithPrefix = wordWithPrefix.slice(1); //move on from first word
-			console.log(longestPrefix);
 		}
 		console.log(longestPrefix);
+		console.log(wordWithPrefix);
+
 }
 
 longestCommonPrefix(wordArray);
