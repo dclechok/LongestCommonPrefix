@@ -27,15 +27,15 @@ function longestCommonPrefix(wordArray){
 				}
 				letter = 0;
 				//holds the longest prefix...needs to hold the most COMMON prefix
-				if(buildingPrefix.length > longestPrefix.length){
-					longestPrefix = buildingPrefix;
-				}
-				buildingPrefix = ''; //reset buildingPrefix
+				// if(buildingPrefix.length > longestPrefix.length){
+				// 	longestPrefix = buildingPrefix;
+				// 	console.log(longestPrefix + 'TEST');
+				// }
+				// buildingPrefix = ''; //reset buildingPrefix
+				console.log(buildingPrefix);
 			}
 			wordWithPrefix = wordWithPrefix.slice(1); //move on from first word
 		}
-		console.log(longestPrefix);
-		console.log(wordWithPrefix);
 
 }
 
